@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index',[Commoncotroller::class,'index'])->name('index');
+Route::get('/',[Commoncotroller::class,'index'])->name('index');
 Route::get('/contact',[Commoncotroller::class,'contact'])->name('contact');
 Route::get('/work',[Commoncotroller::class,'work'])->name('work');
 Route::get('/workRequest',[Commoncotroller::class,'workRequest'])->name('workRequest');
