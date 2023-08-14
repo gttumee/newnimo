@@ -56,7 +56,7 @@ class Commoncotroller extends Controller
             $address = $request->input('address');
             $worktext = $request->input('message');
             $work = $request->input('work'); 
-            $email = 'tmkee0525@gmail.com';
+            $email = 'tumendemberel@mtche.jp';
             Mail::send(new WorkMail($name, $email,$phone, $mail, $address,$worktext,$work));
             session()->flash('flash_message', 'この度は、ご依頼いただき誠にありがとうございました。
             お送りいただきました内容を確認の上、担当者より折り返しご連絡させていただきます。');
