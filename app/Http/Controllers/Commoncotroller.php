@@ -8,6 +8,7 @@ use App\Models\workjob;
 use App\Models\workservice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class Commoncotroller extends Controller
 {
@@ -88,8 +89,45 @@ class Commoncotroller extends Controller
         return view('service',compact('allservice'));
     }
 
-    public function nimokun(){
+    public function nimokun(Request $request)
+    {
+        if( $deleteId= $request->input('delete')){
+            $alljob = workjob::all();
+            workjob::where('id', $deleteId)->delete();       
+             return view('admin',compact('alljob'));
+        };
+        
+        if($request->input('title') || $request->input('jobtext')){   
+            $jobname = $request->input('title');
+            $jobtext = $request->input('jobtext');
+            $other = $request->input('other');
+            $dir = 'img';
+             // アップロードされたファイル名を取得
+             $image = time().'.'.$request->image->extension();  
+             $beforeImage = time().'.'.$request->beforeimage->extension();  
+             $afterImage = time().'.'.$request->afterimage->extension();  
+     
+             // 取得したファイル名で保存
+             $request->image->move(public_path('img'), $image);
+             $request->beforeimage->move(public_path('img'), $beforeImage);
+             $request->afterimage->move(public_path('img'), $afterImage);
+             // ファイル情報をDBに保存
+             $workjob = new workjob();
+             $workjob->title = $jobname;
+             $workjob->image1 = $image;
+             $workjob->image2 = $beforeImage;
+             $workjob->image3 = $afterImage;
+             $workjob->content1 = $jobtext;
+             $workjob->content2 = $other;
+             $workjob->save();
+             $alljob = workjob::all();
+             session()->flash('flash_message', '作業内容保存されました。');
+             $alljob = workjob::all();
+             return view('admin',compact('alljob'));
+        }
+
         $alljob = workjob::all();
         return view('admin',compact('alljob'));
     }
+    
 }

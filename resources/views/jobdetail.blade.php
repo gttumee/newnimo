@@ -15,13 +15,13 @@
                 </div>
             </div>
             <div class="mb-5">
-                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image1}}.jpg" alt="Image">
+                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image1}}" alt="Image">
                 <p>{{$alljob->content1}}</p>
                 <h2 class="mb-4">作業前</h2>
-                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image2}}.jpg" alt="Image">
+                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image2}}" alt="Image">
                 <p>{{$alljob->content1}}</p>
                 <h3 class="mb-4">作業後</h3>
-                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image3}}.jpg" alt="Image">
+                <img class="img-fluid rounded w-100 mb-4" src="img/{{$alljob->image3}}" alt="Image">
                 <p>{{$alljob->content1}}</p>
             </div>
         </div>

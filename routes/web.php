@@ -23,6 +23,10 @@ Route::get('/about',[Commoncotroller::class,'about'])->name('about');
 Route::get('/service',[Commoncotroller::class,'service'])->name('service');
 Route::get('/jobDetail',[Commoncotroller::class,'jobDetail'])->name('jobDetail');
 Route::get('/nimokun',[Commoncotroller::class,'nimokun'])->name('nimokun');
+Route::post('/nimokun',[Commoncotroller::class,'nimokun'])->name('nimokun');
+
+
+
 
 
 

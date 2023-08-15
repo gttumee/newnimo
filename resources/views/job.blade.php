@@ -17,7 +17,7 @@
                 @foreach ($alljob as $item)
                 <div class="col-lg-4 mb-4">
                     <div class="card border-0 shadow-sm mb-2">
-                        <img class="card-img-top mb-2" src="img/{{$item->image1}}.jpg" alt="">
+                        <img class="card-img-top mb-2" src="img/{{$item->image1}}"  width="193" height="300"alt="">
                         <div class="card-body bg-light text-center p-4">
                             <h4 class="">{{$item->title}}</h4>
                             <p>{{$item->content1}}</p>
